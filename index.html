@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信公众平台图文消息二维码分享系统</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="asset/js/html5.js"></script>
+    <![endif]-->
+
+    <!-- core js files -->
+    <script src="asset/js/jquery-1.11.0.min.js"></script>
+    <script src="asset/js/bootstrap.min.js"></script>
+    <script src="asset/js/modernizr.custom.js"></script>
+    
+    <!-- core js files -->
+
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+
+
+    <link rel="stylesheet" href="asset/css/plugins/chosen/chosen.css">
+    <script src="asset/js/plugins/chosen.jquery.min.js"></script>
+
+    <link rel="stylesheet" href="asset/datatable/media/css/demo_table.css">
+    <link rel="stylesheet" href="asset/css/dtable.css">
+    <script src="asset/datatable/media/js/jquery.dataTables.min.js"></script>
+    <script src="asset/datatable/media/js/sorting.js"></script>
+
+    <script src="asset/js/plugins/jquery.tipsy.js"></script>
+    <link rel="stylesheet" href="asset/css/plugins/files/tipsy.css">
+
+    <link rel="stylesheet" href="asset/css/plugins/datepicker/datepicker.css">
+    <script src="asset/js/plugins/bootstrap-datepicker.js"></script>
+    <script src="asset/js/plugins/jquery.maskedinput.min.js"></script>
+
+    <script src="asset/js/plugins/bootstrap3-typeahead.min.js"></script>
+
+    <script src="asset/js/plugins/bootbox.min.js"></script>
+    <script src="asset/js/plugins/jquery.dlmenu.js"></script>
+
+    <link rel="stylesheet" href="asset/css/plugins/files/bootstrap-checkbox.css">
+    <script src="asset/js/plugins/bootstrap-checkbox.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript">
+        var ac_siteURL='';  //PHP Application üzerinde autocomplete verisi işlenmesi için temel adres tanımlaması için
+    </script>
+
+</head>
+<body>
+    <div id="application">
+        <div id="topLine">
+            <div class="applogo">
+                <img width="80px" src="asset/img/weixin.png" />
+            </div>
+            <div class="topcontent hidden-xs">
+                <span><i class="fa fa-tachometer"></i>Tips : 生成的二维码<b class="import">30天内有效</b>，30天内二维码重复生成时不会变化，超过30天需要重新生成。</span>
+                <span><i class="fa fa-tachometer"></i>Tips :首次使用系统时，请<b class="import">点击获取最新列表</b>，此时系统会自动下载微信公众平台所有图文消息。【由于微信平台对请求次数有限制，请不要频繁操作该功能】</span> 
+                <span><i class="fa fa-tachometer"></i>Tips :您可以一次性在微信平台创建多个素材后于本页获取最新列表，以简化流程。但<b class="import">每次最多仅可添加18条素材信息</b>，否则微信将不会将完整信息返回至服务器。</span> 
+            </div>
+            <!-- <div class="topmenu">
+                <ul>
+                    <li>
+                        <a href="#" class="ta">
+                        <img src="https://2.gravatar.com/avatar/621675677724d411a372dcdb1e50dbab6" width="50px" class="img-circle" />
+                        <span>Test TestingName</span>
+                        <i class="fa fa-sort-desc"></i>
+                        </a>
+                        <ul>
+                            <li><a href="#">Profil</a></li>
+                            <li><a href="#">Profil</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+        <div id="appContent">
+
+        <div id="dl-menu" class="dl-menuwrapper">
+            <ul class="dl-menu">
+                <!-- <li><a href="#"><i class="fa fa-tachometer"></i>菜单管理</a> </li> -->
+                <li><a href="keywordsBack.php"><i class="fa fa-tachometer"></i>自动回复</a> </li>
+                <!-- <li>
+                    <a href="#"><i class="fa fa-user"></i>Kullanıcılar</a>
+                    <ul class="dl-submenu">
+                        <li><a href="#">Kullanıcı Listesi</a></li>
+                        <li><a href="#">Yeni Kullanıcı Oluştur</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Formlar</a>
+                    <ul class="dl-submenu">
+                        <li><a href="#">İçerik 1</a></li>
+                        <li><a href="#">İçerik 2</a></li>
+                        <li><a href="#">İçerik 4</a></li>
+                        <li><a href="#">İçerik 3</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+
+            <!--<div class="appmenu dl-menuwrapper">-->
+                <!--<ul id="menu" class="dl-menu">-->
+                    <!--<li><a href="#"><i class="fa fa-tachometer"></i>Ana sayfa</a></li>-->
+                    <!--<li><a href="#" class="active"><i class="fa fa-user"></i>Kullanıcılar</a></li>-->
+                    <!--<li><a href="#"><i class="fa fa-list-alt"></i>Formlar</a>-->
+                        <!--<ul class="dl-submenu">-->
+                            <!--<li><a href="#" class="active">Sub 1</a></li>-->
+                            <!--<li><a href="#">Sub 2</a></li>-->
+                            <!--<li><a href="#">Sub 3</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <div class="appcontent" >
+                <div class="appbreadcrumb">
+                    <ol class="breadcrumb">
+                        <li><a class="menuButton" href="#"><i class="fa fa-bars"></i> Menü</a></li>
+                        <li class="active">微信公众平台图文消息二维码分享系统</li>
+                    </ol>
+                </div>
+                <div class="message" style="display: none;">
+                    <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Warning! &nbsp;</strong> 
+                        <span class="showError"></span>
+                    </div>
+                </div>
+                <div class="content">
+                        <div class="col-md-12">
+                            <div class="widget">
+                                <div class="whead">
+                                    <h6>
+                                        <input class="btn refresh" type="button" value="获取最新列表(2分钟1次)">
+                                    </h6>
+                                    <h6>
+                                        <input class="btn allInfos" type="button" value="查看所有素材">
+                                    </h6>
+                                    <h6>
+                                        <input class="btn onlyVideo" type="button" value="只看视频素材">
+                                    </h6>
+                                    <h6>
+                                        <input class="btn onlyNews" type="button" value="只看图文消息素材">
+                                    </h6>
+                                </div>
+                                <div class="wbody">
+                                <table cellpadding="0" cellspacing="0" border="0" class="display dtable" id="example1" width="100%" data-table-ajax="">
+                                <thead>
+                                <tr>
+                                    <th>素材标题(图文消息类型点击可预览)</th>
+                                    <th>类型</th>
+                                    <th>生成二维码</th>
+                                </tr>
+                                </thead>
+                                <tbody class="items">
+	                               <!--  <tr class="gradeA">
+	                                    <td>Trident</td>
+	                                    <td>Internet
+	                                        Explorer 4.0</td>
+	                                    <td>Win 95+</td>
+	                                </tr> -->
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                                </table>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        <div class="clearfix"></div>
+                        </div>
+                    <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function showItemList(first=false){
+            var date = new Date();
+            // console.log(first);return false;
+            $.get(
+                'getItemFromDb.php?date='+date.getTime(),
+                '',
+                function(data){
+                    if(first){
+                        $('.core_js').attr('src','asset/js/core.js');
+
+                    }
+                    $('.items').html('');
+                    var item; 
+                    for(var i in data){
+                        item = data[i];
+                        var type,title;
+                        if(item.type == 'video'){
+                            type = '视频类型';
+                            title = $("<td></td>").html(item.title);
+                        }else if(item.type == 'news'){
+                            type = '图文消息类型';
+                            title = $("<td></td>").html("<a href='"+item.url+"' target='_blank'>"+item.title+"</a>");
+                        }
+                        var view = $('<td></td>').html(type);
+                        var qrcodeUrl = 'getQrcode.php?';
+                        if(item.ticket){
+                            qrcodeUrl += 'ticket='+item.ticket;
+                        }else{
+                            qrcodeUrl += 'media_id='+item.media_id;
+                        }
+                        qrcodeUrl += '&title='+item.title+'&type='+item.type;
+                        var share = $('<td></td>').html(
+                                "<a href='"+qrcodeUrl+"' target='_blank'>点击生成</a>"
+                            );
+                        var tr = $("<tr class='gradeA'></tr>").append(title,view,share);
+                        $('.items').append(tr);
+                    }
+                },
+                'json'
+            );
+        }
+        showItemList(true);
+        $('.refresh').click(function(){
+            $(this).val('正在获取，请勿刷新页面，耐心等待，获取成功后页面会自动刷新....');
+            $(this).attr('disabled',true);
+            var date = new Date();
+            $.get(
+                'refreshItemList.php?date='+date.toGMTString(),
+                '',
+                function(msg){
+                    if(msg != 'success'){
+                        $('.message').css('display','block');
+                        $('.showError').html(msg);
+                        $('.refresh').val('获取最新列表(2分钟1次)');
+                    }else{
+                        location.reload();
+                    }
+                    $('.refresh').removeAttr('disabled');
+                }
+            );
+        });
+
+        $('.onlyVideo').click(function(){
+            $('input[aria-controls="example1"]').val('视频类型').keyup();
+        });
+        $('.onlyNews').click(function(){
+              $('input[aria-controls="example1"]').val('图文消息类型').keyup();
+        });
+        $('.allInfos').click(function(){
+              $('input[aria-controls="example1"]').val('').keyup();
+        });
+</script>
+<script class="core_js"></script>
+</body>
+</html>
