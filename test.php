@@ -8,5 +8,5 @@
 	// include("function.php");
 	// echo getAccessToken();
 	
-	echo strlen("rCav1xJB1MUpGNKRSKllzDuICqeppdlFzKB93JWv4hM");
+	echo strlen("https://mp.weixin.qq.com/s?__biz=MjM5NjI5OTk1NA==&mid=200073159&idx=1&sn=03e4b47922f3dba43b9c598bdae52a3a#rd");
 ?>
