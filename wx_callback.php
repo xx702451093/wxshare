@@ -51,7 +51,6 @@ class wechatCallbackapiTest
                 $media_id = $arr[0];
                 $type = $arr[1];
                 $this->write_log($media_id);
-                $this->write_log($type);
                 if(strcmp($type,'news') === 0){
                     $this->sendNewsMessage($fromUsername, $media_id);
                 }else if(strcmp($type,'video') === 0){

@@ -5,7 +5,7 @@
 		// ticket不存在 先获取ticket
 		if(isset($_GET['media_id'])){
 			$ticket = getTicket($_GET['media_id'],$_GET['type']);
-			$m->query("update mp_iteminfos set ticket = '{$ticket}',qrcodeExpire = {$nowTime} where media_id = '{$_GET['media_id']}'");
+			$m->query("update mp_iteminfos set ticket = '{$ticket}' where media_id = '{$_GET['media_id']}'");
 		}
 		// ticket存在 检测有效期  不在有效期 重新获取ticket
 		// if(isset($_GET['ticket'])){

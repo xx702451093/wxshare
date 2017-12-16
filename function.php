@@ -260,7 +260,7 @@
 	function getTicket($media_id,$type){
 		$url = "https://api.weixin.qq.com/cgi-bin/qrcode/create";
 		$data = array(
-			"action_name" => "QR_LIMIT_SCENE",//临时二维码 参数为字符串
+			"action_name" => "QR_LIMIT_STR_SCENE",//临时二维码 参数为字符串
 			"action_info" => array(
 				"scene" => array(
 					"scene_str" => $media_id.'&'.$type
