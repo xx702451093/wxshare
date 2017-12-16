@@ -1,6 +1,7 @@
 <?php
 header('Content-type:text/html;Charset=utf-8;');
 include('function.php');
+session_start();
 define("TOKEN", "mujiang");//自己定义的token 就是个通信的私钥
 $wechatObj = new wechatCallbackapiTest();
 // 检测token时运行该方法
@@ -32,6 +33,15 @@ class wechatCallbackapiTest
             $toUserName = (string)$postObj->ToUserName;
             $keyword = (string)$postObj->Content;
             $msgtype = (string)$postObj->MsgType;
+            // 避免多次扫描
+            $createTime = (int)$postObj->CreateTime;
+            if(isset($_SESSION['createTime']) && $createTime - $_SESSION['createTime'] <= 2){
+                header('content-type:text');
+                echo 'success';
+                exit;
+            }else{
+                $_SESSION['createTime'] = $createTime;
+            }
             // 收到的消息为文本
             if(strcmp($msgtype,'text') == 0){
                 $this->search($fromUsername,$toUserName,$keyword);
