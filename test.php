@@ -5,6 +5,8 @@
 	// 	die('truncate table success');
 	// die('truncate table error,'.$m->error);
 
-	include("function.php");
-	echo getAccessToken();
+	// include("function.php");
+	// echo getAccessToken();
+	
+	echo strlen("rCav1xJB1MUpGNKRSKllzDuICqeppdlFzKB93JWv4hM");
 ?>
