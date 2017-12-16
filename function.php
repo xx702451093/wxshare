@@ -236,12 +236,31 @@
 		return false;	
 	}
 
-	// 根据参数获取ticket
-	function getTicket($media_id,$type){
+	// 根据参数获取ticket 
+	// 获取临时二维码 
+	function getTemporaryTicket($media_id,$type){
 		$url = "https://api.weixin.qq.com/cgi-bin/qrcode/create";
 		$data = array(
 			"expire_seconds" => 2592000,
 			"action_name" => "QR_STR_SCENE",//临时二维码 参数为字符串
+			"action_info" => array(
+				"scene" => array(
+					"scene_str" => $media_id.'&'.$type
+				)
+			)
+		);
+		// 请求ticket
+		$ticket_data = curl_send_post_to_wxapi($url,$data);
+		$ticket_data = json_decode($ticket_data,true);
+		return urlencode($ticket_data['ticket']);
+	}
+
+	// 换取ticket
+	// 获取永久二维码
+	function getTicket($media_id,$type){
+		$url = "https://api.weixin.qq.com/cgi-bin/qrcode/create";
+		$data = array(
+			"action_name" => "QR_LIMIT_SCENE",//临时二维码 参数为字符串
 			"action_info" => array(
 				"scene" => array(
 					"scene_str" => $media_id.'&'.$type
